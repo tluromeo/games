@@ -1,0 +1,216 @@
+.game-section {
+    display: none;
+}
+
+/* Styles for the home screen layout */
+#home-screen {
+    text-align: center;
+    padding-top: 10px;
+    /* Other styles */
+}
+
+/* Styles for each game container */
+.game-container {
+    display: inline-block; /* Align containers side by side */
+    margin: 0 20px; /* Spacing between the game containers */
+    vertical-align: top; /* Align the tops of the containers */
+}
+
+/* Styles for the logos */
+.game-logo {
+    max-width: 150px; /* Adjust the width as necessary */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures the image is on its own line */
+    margin-bottom: 10px; /* Space between logo and button */
+}
+
+#home-screen button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* You can also use media queries to adjust sizes for specific screen sizes */
+@media (max-width: 768px) {
+    .game-logo {
+        max-width: 40vw; /* Larger size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .game-logo {
+        max-width: 60vw; /* Even larger size for very small screens */
+    }
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#wordle-game{
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: auto; /* Allow the width to be determined by the content */
+    min-height: auto; /* Allow the height to be determined by the content */
+    background-color: #d3d3d3; /* Light gray background for the board */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wordle-cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #444;
+    display: inline-block;
+    margin: 2px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    text-transform: uppercase;
+    vertical-align: top;
+}
+
+.game-section button {
+    margin-bottom: 10px;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+
+.wordle-row {
+    margin-bottom: 5px;
+}
+
+.G { background-color: green; } /* Correct position */
+.Y { background-color: yellow; } /* Correct letter, wrong position */
+.B { background-color: grey; } /* Letter not in the word */
+
+/* Add or update these styles */
+.wordle-cell {
+    transition: background-color 0.3s;
+}
+
+#connections-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: auto; /* Allow the width to be determined by the content */
+    min-height: auto; /* Allow the height to be determined by the content */
+    background-color: #d3d3d3; /* Light gray background for the board */
+    position: relative;
+}
+
+
+#connections-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns, equal size */
+    gap: 10px; /* Gap between tiles */
+    width: 50vmin; /* Adjusted width for smaller board */
+    height: 50vmin; /* Adjusted height for smaller board */
+    margin: auto; /* Center the board */
+    padding: 10px; /* Padding inside the board */
+    background-color: #d3d3d3; /* Background color of the board */
+}
+
+.connections-tile {
+    border: 1px solid #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.5vmin; /* Adjusted font size for smaller tiles */
+    width: calc((50vmin - (3 * 10px) - (2 * 10px)) / 4); /* Adjusted width for tiles */
+    height: calc((50vmin - (3 * 10px) - (2 * 10px)) / 4); /* Adjusted height for tiles */
+}
+
+.category-items {
+    font-size: 2vmin;
+    white-space: nowrap; /* Keep the text in a single line */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add an ellipsis for overflowed text */
+}
+
+
+.category-tile {
+    grid-column: 1 / -1; /* Span all columns */
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #444;
+    height: calc((50vmin - (3 * 10px) - (2 * 10px)) / 4); /* Same height as individual tiles */
+    font-size: 3vmin;
+    text-align: center;
+    font-size: 4vmin; /* Larger font size for the title */
+    font-weight: bold;
+}
+
+/* Styles for each category */
+.category-tile.fruit { background-color: #FFD700; } /* Gold */
+.category-tile.vegetables { background-color: #98FB98; } /* PaleGreen */
+.category-tile.europe_capitals { background-color: #FFB6C1; } /* LightPink */
+.category-tile.sleeping { background-color: #DDA0DD; } /* Plum */
+
+/* Style for the list of items */
+.category-tile ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.category-tile ul li {
+    font-size: 2vmin;
+}
+
+.category-tile div {
+    font-size: 2vmin;
+    text-align: center;
+}
+
+#lives-container {
+    display: flex;
+    justify-content: center;
+    position: absolute; /* Position absolutely within the connections-game container */
+    bottom: 35px; /* Adjust as needed to position near the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Align center */
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+.life {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: darkslategrey;
+    margin: 0 5px;
+    transition: opacity 0.3s ease;
+}
+
+
+.selected {
+    background-color: #add8e6; /* Light blue to indicate selection */
+}

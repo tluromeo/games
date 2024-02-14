@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Games</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+   <!-- Home Screen -->
+<div id="home-screen">
+    <h1>happy valentine's day!</h1>
+    <h1>2/14/24</h1>
+    
+    <div class="game-container">
+        <!-- Wordle Logo and Button -->
+        <img src="wordle.png" alt="Wordle Logo" class="game-logo" />
+        <button onclick="showGame('wordle-game')">Wordle &lt;3</button>
+    </div>
+    
+    <div class="game-container">
+        <!-- Connections Logo and Button -->
+        <img src="connections.png" alt="Connections Logo" class="game-logo" />
+        <button onclick="showGame('connections-game')">Connections :)</button>
+    </div>
+</div>
+
+    <!-- Wordle Game Section -->
+<div id="wordle-game" class="game-section">
+    <button onclick="showHome()">Back to Home</button>
+    <h2>wordle<3</h2>
+    <div id="wordle-board"></div>
+</div>
+
+<!-- Connections Game Section -->
+<div id="connections-game" class="game-section">
+    <button onclick="showHome()">Back to Home</button>
+    <h2>connections :)</h2>
+    <div id="connections-board"></div>
+    <button onclick="checkConnections()">Submit Answer</button>
+    <div id="group-display"></div>
+
+    <div id="lives-container">
+        <span class="life"></span>
+        <span class="life"></span>
+        <span class="life"></span>
+        <span class="life"></span>
+    </div>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
