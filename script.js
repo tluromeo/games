@@ -113,9 +113,23 @@ function submitGuess() {
         }
 
         let feedback = checkWord(guess);
+
+            // Apply the animation to each cell with a delay
         for (let i = 0; i < 5; i++) {
-            currentRowCells[i].style.backgroundColor = getColor(feedback[i]);
+            setTimeout(() => {
+                const cell = currentRowCells[i];
+                cell.classList.add('flip');
+                
+                // Set color after flip
+                setTimeout(() => {
+                    cell.style.backgroundColor = getColor(feedback[i]);
+                }, 300); // Halfway through the flip
+            }, i * 600); // Sequential delay for each cell
         }
+
+        // for (let i = 0; i < 5; i++) {
+        //     currentRowCells[i].style.backgroundColor = getColor(feedback[i]);
+        // }
 
         let isGameOver = guess === targetWord || currentRow === 5;
         
@@ -278,6 +292,7 @@ function checkConnections() {
         return; // Exit the function without checking the guess
     }
 
+    
     let isCorrect = false;
     for (let category in categories) {
         if (categories[category].every(word => selectedWords.includes(word))) {
