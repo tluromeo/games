@@ -49,7 +49,7 @@ function showHome() {
 
 
 
-let targetWord = 'cuter'; // Hardcoded target word
+let targetWord = 'smush'; // Hardcoded target word
 
 let attempts = 0;
 let currentRow = 0;
@@ -139,7 +139,7 @@ function submitGuess() {
         // Delay the alert message to allow the feedback colors to be seen first
         setTimeout(function() {
             if (isGameOver) {
-                let message = guess === targetWord ? "you guessed the word! definitive proof that you're cuter :)" : "game over! this is definitive proof that you're \"cuter\")";
+                let message = guess === targetWord ? "you guessed the word! you're such a smush <3" : "game over! you're still a smush though <3";
                 alert(message);
                 wordleGameOver = true; // Set the flag when the game ends
             }
