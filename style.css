@@ -189,6 +189,11 @@ h1 {
     font-size: 1.5vmin; /* Adjusted font size for smaller tiles */
     width: calc((50vmin - (3 * 10px) - (2 * 10px)) / 4); /* Adjusted width for tiles */
     height: calc((50vmin - (3 * 10px) - (2 * 10px)) / 4); /* Adjusted height for tiles */
+    transition: background-color 0.3s ease; 
+}
+
+.connections-tile:hover {
+    background-color: #07000047; /* Darker shade when hovered */
 }
 
 .category-items {
@@ -214,10 +219,10 @@ h1 {
 }
 
 /* Styles for each category */
-.category-tile.fruit { background-color: #FFD700; } /* Gold */
-.category-tile.vegetables { background-color: #98FB98; } /* PaleGreen */
-.category-tile.europe_capitals { background-color: #FFB6C1; } /* LightPink */
-.category-tile.sleeping { background-color: #DDA0DD; } /* Plum */
+.category-tile.french { background-color: #FFD700; } /* Gold */
+.category-tile.ada { background-color: #98FB98; } /* PaleGreen */
+.category-tile.football { background-color: #FFB6C1; } /* LightPink */
+.category-tile.warm { background-color: #DDA0DD; } /* Plum */
 
 /* Style for the list of items */
 .category-tile ul {
@@ -257,6 +262,5 @@ h1 {
 
 
 .selected {
-    background-color: #ff6b6b; /* Soft red for selected tiles */
-    color: white; /* White text for contrast */
+    background-color: #fb7a7a; /* Soft red for selected tiles */   
 }

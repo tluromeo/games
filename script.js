@@ -49,7 +49,7 @@ function showHome() {
 
 
 
-let targetWord = 'slate'; // Hardcoded target word
+let targetWord = 'cuter'; // Hardcoded target word
 
 let attempts = 0;
 let currentRow = 0;
@@ -139,13 +139,13 @@ function submitGuess() {
         // Delay the alert message to allow the feedback colors to be seen first
         setTimeout(function() {
             if (isGameOver) {
-                let message = guess === targetWord ? "Congratulations! You guessed the word: \"" + targetWord + "\"" : "Game over! The word was \"" + targetWord + "\"";
+                let message = guess === targetWord ? "you guessed the word! definitive proof that you're cuter :)" : "game over! this is definitive proof that you're \"cuter\")";
                 alert(message);
                 wordleGameOver = true; // Set the flag when the game ends
             }
-        }, 300); // Delay can be adjusted as needed
+        }, 3500); // Delay can be adjusted as needed
     } else {
-        alert("Please enter a 5-letter guess");
+        alert("don't be silly — enter a 5-letter word!");
     }
 }
 
@@ -190,14 +190,11 @@ function getColor(feedbackChar) {
 }
 
 
+const connectionsWords =  ['GOOSE', 'SWEATER', 'HUGS', 'ENGINE',
+'RAINCOAT', 'LOVER', 'INTIMACY', 'OVERPASS', 
+'DOWN', 'FUMBLE', 'BLOCK', 'BLITZ',
+'RUE', 'CAFE', 'METRO', 'SPECTACLE'];
 
-
-const connectionsWords = [
-    "apple", "pear", "orange", "banana", 
-    "tomato", "carrot", "broccoli", "celery", 
-    "paris", "london", "amsterdam", "stockholm", 
-    "bed", "pillow", "blanket", "sheets"
-];
 let selectedWords = [];
 
 
@@ -265,22 +262,22 @@ function selectWord(word, tile) {
     }
 }
 
-// things that keep you warm: goose, sweater, hugs, engine
-// ada poems: raincoat, lover, endlessness, conditional
-// 
-// 
-
 const categories = {
-    'fruit': ['apple', 'pear', 'orange', 'banana'],
-    'vegetables': ['tomato', 'carrot', 'broccoli', 'celery'],
-    'europe_capitals': ['paris', 'london', 'amsterdam', 'stockholm'],
-    'sleeping': ['bed', 'pillow', 'blanket', 'sheets']
+    'warm': ['GOOSE', 'SWEATER', 'HUGS', 'ENGINE'],
+    'ada': ['RAINCOAT', 'LOVER', 'INTIMACY', 'OVERPASS'],
+    'football': ['DOWN', 'FUMBLE', 'BLOCK', 'BLITZ'],
+    'french': ['RUE', 'CAFE', 'METRO', 'SPECTACLE']
 };
 let lives = 4;
 let correctlyGuessedCategories = [];
 
 
-
+const categoryNames = {
+    'warm': 'things that keep you warm (fr tho)',
+    'ada': 'ada poem titles',
+    'football': 'football terms (according to google)',
+    'french': 'words we need to know for france!'
+};
 
 function checkConnections() {
     if (connectionsGameOver) {
@@ -288,7 +285,7 @@ function checkConnections() {
     }
     // Check if exactly four words are selected
     if (selectedWords.length !== 4) {
-        alert("You must select exactly 4 words to make a guess.");
+        alert("don't be silly — you need to select exactly 4 words to make a guess!");
         return; // Exit the function without checking the guess
     }
 
@@ -314,20 +311,17 @@ function checkConnections() {
         // Check if all categories have been guessed correctly
         if (correctlyGuessedCategories.length === Object.keys(categories).length * 4) {
             connectionsGameOver = true;
-            alert("Congratulations! You've correctly guessed all categories!");
+            alert("you're so smart! you've guessed all the categories!");
         }
     }, 500); // Adjust the delay as needed
 
     if (lives === 0) {
-        alert("Game over!");
+        alert("flop! (maybe i'll tell you the answer if you're nice to me)");
         connectionsGameOver = true;
         // Optionally, reset the game or offer a retry
     }
 
-
 }
-
-
 
 function updateLivesDisplay() {
     const lifeIndicators = document.querySelectorAll("#lives-container .life");
@@ -344,9 +338,8 @@ function createCategoryTile(categoryName) {
     let categoryTile = document.createElement("div");
     categoryTile.className = "category-tile " + categoryName;
 
-    // Category name
     let title = document.createElement("div");
-    title.innerText = categoryName;
+    title.innerText = categoryNames[categoryName]; // Use the new name
     title.className = "category-title";
     categoryTile.appendChild(title);
 
@@ -372,12 +365,13 @@ function createCategoryTile(categoryName) {
 function removeGuessedWords(category) {
     const board = document.getElementById("connections-board");
     categories[category].forEach(word => {
-        let tileToRemove = Array.from(board.children).find(tile => tile.innerText.toLowerCase() === word);
+        let tileToRemove = Array.from(board.children).find(tile => tile.innerText.trim().toUpperCase() === word.toUpperCase());
         if (tileToRemove) {
             board.removeChild(tileToRemove);
         }
     });
 }
+
 
 
 
