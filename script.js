@@ -49,7 +49,7 @@ function showHome() {
 
 
 
-let targetWord = 'smush'; // Hardcoded target word
+let targetWord = 'hiben'; // Hardcoded target word
 
 let attempts = 0;
 let currentRow = 0;
